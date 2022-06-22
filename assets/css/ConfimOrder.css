@@ -1,0 +1,25 @@
+.promptpay-card {
+  width: 70%;
+  margin: auto;
+}
+.NetPrice {
+  color: #3c78bd;
+}
+.NetPriceValue {
+  font-size: 22px;
+}
+.CoutingTime,
+.UploadSlip {
+  color: #dd6241;
+}
+
+@media only screen and (max-width: 600px) {
+  .promptpay-card {
+    width: unset;
+    padding: 1rem !important;
+  }
+}
+
+.text-loader {
+  width: 30%;
+}

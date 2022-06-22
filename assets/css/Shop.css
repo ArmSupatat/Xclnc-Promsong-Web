@@ -1,0 +1,227 @@
+.ShopStepper {
+  width: 80%;
+}
+
+.txtStepper {
+  font-family: Prompt;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.cust .v-stepper__step__step {
+  height: 48px;
+  min-width: 48px;
+  width: 48px;
+
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+}
+.cust .v-stepper--alt-labels .v-stepper__header .v-divider {
+  margin: 47px -67px 0;
+  align-self: flex-start;
+}
+
+.btn-ready {
+  width: 120px;
+  height: 40px !important;
+  background-color: #469b5c;
+  border-radius: 4px;
+
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0em;
+}
+
+.btn-disable {
+  width: 120px;
+  height: 40px !important;
+  background-color: #000000;
+  opacity: 0.2;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.btn-normal {
+  width: 120px;
+  height: 40px !important;
+  background-color: transparent;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.85);
+  border: 1px solid #dbdee7 !important;
+}
+
+.Subtitle1 {
+  font-family: Prompt;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000000 !important;
+}
+.Body2 {
+  font-family: Prompt;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  color: #000000 !important;
+}
+
+.InputLable {
+  font-family: Prompt;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.cust .v-stepper__header {
+  box-shadow: none;
+}
+
+.border_stapper {
+  border: 1px solid #dbdee7 !important;
+  margin-bottom: 24px !important;
+  /* background-color: seagreen !important; */
+}
+
+.cust .v-sheet.v-card:not(.v-sheet--outlined) {
+  box-shadow: none;
+}
+
+.v-application .cust .mb-12 {
+  margin-bottom: 27px !important;
+}
+
+/* .row-mbn {
+   margin-bottom: -36px !important;
+} */
+
+.v-application .cust .mb-6 {
+  margin-bottom: 0px !important;
+}
+
+.cust .v-input {
+  height: 75px !important;
+}
+
+.cust .none-details-messages .v-input {
+  height: 45px !important;
+}
+
+/* .cust .v-dialog {
+  border-radius: 25px !important;
+} */
+
+.custGreen {
+  color: #469b5c;
+}
+
+.btn-signin {
+  width: max-content;
+  outline: none;
+  font-weight: bolder;
+  transition: 0.5s;
+}
+.btn-signin:hover {
+  color: #469b5c;
+}
+
+.shoptyp > .v-item-group > .row {
+  gap: 10px;
+}
+
+.col-shoptyp {
+  padding: 0px;
+  flex: 0 0 24% !important;
+}
+
+.img-shoptyp {
+  max-width: 150px !important;
+  height: 102px !important;
+}
+
+.shoptyp-active {
+  background-color: royalblue;
+}
+
+@media only screen and (max-width: 600px) {
+  .shoptyp > .v-item-group > .row {
+    gap: 7px;
+  }
+  .col-shoptyp {
+    padding: 0px;
+    flex: 0 48% !important;
+  }
+  .img-shoptyp {
+    max-width: 100px !important;
+    height: 102px !important;
+  }
+  .ShopStepper {
+    width: 100%;
+  }
+}
+
+.textConfirmDialogMapTitle {
+  font-family: Prompt;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  color: #484848;
+}
+
+.textConfirmDialogMapSubtitle {
+  font-family: Prompt;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  color: #000000 !important;
+}
+
+.Button {
+  font-family: Prompt;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.85);
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 4px;
+}
+
+.HeaderShopMap {
+  font-family: Prompt;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+
+  color: #000000;
+}
+
+.gm-style .gm-style-iw-c,
+.gm-ui-hover-effect {
+  background-color: #3c78bd !important;
+}
+.gm-style .gm-style-iw-t::after {
+  display: none;
+}

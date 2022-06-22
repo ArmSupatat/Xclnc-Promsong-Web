@@ -1,0 +1,52 @@
+{
+  "name": "promptsong",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
+    "lint": "npm run lint:js"
+  },
+  "dependencies": {
+    "@nuxt/typescript-runtime": "^2.0.1",
+    "@nuxtjs/auth": "^4.9.1",
+    "@nuxtjs/axios": "^5.12.5",
+    "@nuxtjs/pwa": "^3.3.5",
+    "core-js": "^3.8.3",
+    "nuxt": "^2.14.12",
+    "nuxt-material-design-icons-iconfont": "^1.0.2",
+    "qrcode": "^1.4.4",
+    "vue-browser-geolocation": "^1.8.0",
+    "vue-carousel": "^0.18.0",
+    "vue-js-modal": "1.3.34",
+    "vue-loading-overlay": "^3.0",
+    "vue-qrcode": "^0.4.0",
+    "vue2-google-maps": "^0.10.7",
+    "vuex-persistedstate": "3.2.0"
+  },
+  "devDependencies": {
+    "@nuxt/types": "^2.14.12",
+    "@nuxt/typescript-build": "^2.0.4",
+    "@nuxtjs/eslint-config-typescript": "^5.0.0",
+    "@nuxtjs/eslint-module": "^3.0.2",
+    "@nuxtjs/moment": "^1.6.1",
+    "@nuxtjs/vuetify": "^1.11.3",
+    "babel-eslint": "^10.1.0",
+    "cors": "^2.8.5",
+    "eslint": "^7.18.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-nuxt": "^2.0.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vue": "^7.5.0",
+    "express": "^4.17.1",
+    "fibers": "^5.0.0",
+    "node-sass": "^5.0.0",
+    "prettier": "^2.2.1",
+    "sass": "^1.32.7",
+    "sass-loader": "^10.1.1",
+    "vue-promptpay-qr": "^1.0.6"
+  }
+}

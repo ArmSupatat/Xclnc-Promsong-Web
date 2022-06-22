@@ -1,0 +1,27 @@
+.v-menu__content .theme--light .menuable__content__active {
+  z-index: 1 !important;
+}
+.sortProduct {
+  width: 50%;
+}
+.text-lg-h4,
+.text-lg-h5,
+.text-md-h6,
+.text-md-h5,
+.text-subtitles .text-sm-subtitles,
+.text-subtitle-1,
+.text-sm-h6,
+.text-subtitles,
+.text-lg-h6,
+.text-md-subtitle-1,
+.text-sm-subtitle-2,
+.text-lg-body-1,
+.text-md-body-2,
+.text-caption {
+  font-family: Prompt !important;
+}
+@media only screen and (max-width: 960px) {
+  .text-TitelResultProduct {
+    font-size: x-large;
+  }
+}

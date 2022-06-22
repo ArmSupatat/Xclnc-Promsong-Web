@@ -1,0 +1,10 @@
+.summaryorder-wrapper {
+  width: 100%;
+  border: 1px solid #dbdee7;
+}
+.NetPrice {
+  color: #dd6241;
+}
+.NetPriceValue {
+  font-size: 22px;
+}

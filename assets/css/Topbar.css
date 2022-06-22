@@ -1,0 +1,212 @@
+.app-Topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: inherit;
+}
+.col {
+  padding: 0px;
+}
+.v-menu__content {
+  position: fixed;
+}
+.container-Topbar {
+  border-bottom: 0.7em solid #469b5c;
+  background-color: white;
+}
+.container-search {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+.container-search-input {
+  display: flex;
+  height: 3em;
+}
+#search {
+  flex: 0 0 50%;
+}
+.btn-signin,
+.btn-signup {
+  font-family: Prompt;
+  width: max-content;
+  outline: none;
+  font-weight: bolder;
+  transition: 0.5s;
+}
+.btn-signin:hover,
+.btn-signup:hover {
+  color: #469b5c;
+}
+.btu-searchproduct {
+  padding: 0px !important;
+  width: 20% !important;
+  min-width: 10% !important;
+  border: 1px solid #469b5c !important;
+  height: 100% !important;
+}
+.Topic {
+  font-size: 16px;
+}
+
+.v-application .text-md-subtitle-1 {
+  font-family: Prompt !important;
+}
+
+.cart:hover {
+  cursor: pointer;
+}
+
+.popup-login-container {
+  border-radius: 10px;
+}
+
+.popup-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.popup-button {
+  width: 350px;
+  height: 70px;
+  border: 1px solid #dde0e2;
+  margin: 15px 0;
+  padding: 0 105px;
+}
+
+.popup-button:hover {
+  color: #469b5c !important;
+  border: 2px solid #469b5c;
+}
+
+.popup-button:hover .style-icon-operator {
+  background-color: #469b5c;
+}
+
+.popup-button:hover .style-icon-staff {
+  background-color: darkgreen;
+  color: black;
+}
+
+.icon-operator {
+  mask: url(../../assets/img/operator.svg) no-repeat;
+}
+
+.style-icon-operator {
+  width: 20px;
+  height: 17px;
+  margin-right: 10px;
+  background-color: gray;
+}
+
+.icon-staff {
+  mask: url(../../assets/img/staff.svg) no-repeat;
+}
+
+.style-icon-staff {
+  width: 30px;
+  height: 25px;
+  margin-right: 5px;
+  background-color: black;
+}
+
+.select-user-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+}
+.shop-name {
+  width: 150px;
+  font-size: 12px;
+  color: gray;
+}
+@media only screen and (max-width: 900px) {
+  .btu-searchproduct > .v-btn__content > .material-icons {
+    font-size: medium;
+  }
+  #search_input {
+    font-size: small;
+  }
+  .container-search-input {
+    height: 2.5em;
+  }
+  .Topic {
+    font-size: 13px;
+  }
+  .btn-signin,
+  .btn-signup {
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  #search {
+    flex: 0 0 70%;
+  }
+  .btu-searchproduct > .v-btn__content > .material-icons {
+    font-size: x-small !important;
+  }
+  .theme--light.v-btn.v-btn--has-bg {
+    background-color: white;
+  }
+  .container-search {
+    justify-content: center !important;
+    width: 1rem;
+  }
+  .v-badge__badge {
+    inset: auto auto calc(95% - 12px) calc(95% - 12px) !important;
+  }
+
+  #search_input {
+    font-size: x-small;
+  }
+  .container-search-input {
+    height: 1.5em;
+  }
+  .Topic {
+    font-size: xx-small;
+    margin-right: 6px;
+  }
+  .btn-signin,
+  .btn-signup {
+    font-size: xx-small;
+  }
+  .v-btn:not(.v-btn--round).v-size--default {
+    min-width: 0px !important;
+    padding: 0 !important;
+  }
+  .Logo {
+    width: 7rem !important;
+  }
+}
+@media only screen and (max-width: 365px) {
+  .v-application .text-h6 {
+    font-size: 0.8rem !important;
+  }
+  .Logo {
+    width: 5rem !important;
+  }
+
+  .container-Topbar .container {
+    padding: 13px 5px 0px 5px;
+  }
+
+  #search_input {
+    font-size: x-small;
+  }
+
+  .Topic {
+    font-size: xx-small;
+    margin-right: 4px;
+  }
+  .btn-signin,
+  .btn-signup {
+    font-size: xx-small;
+  }
+}
+.v-application .primary {
+  background-color: '#DD6241' !important;
+}

@@ -1,0 +1,54 @@
+.category {
+  width: initial;
+  height: fit-content;
+  border: 1px solid #dbdee7;
+}
+.category-container {
+  padding: 1em 1em;
+}
+.category-name {
+  cursor: pointer;
+}
+.searching {
+  width: initial;
+}
+.col {
+  padding: 0px;
+}
+.text-MenuProduct {
+  font-size: 18px;
+}
+.text-ListMenuProduct {
+  font-size: 16px;
+}
+.searching-Rangeprice,
+.searching-category {
+  width: initial;
+  height: fit-content;
+  border: 1px solid #dbdee7;
+  padding: 1em 1em;
+}
+@media only screen and (max-width: 1260px) {
+  .text-MenuProduct {
+    font-size: 16px;
+  }
+  .text-ListMenuProduct {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 780px) {
+  .text-MenuProduct {
+    font-size: 14px;
+  }
+  .text-ListMenuProduct {
+    font-size: 10px;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .text-MenuProduct {
+    font-size: 12px;
+  }
+  .text-ListMenuProduct {
+    font-size: 8px;
+  }
+}

@@ -1,0 +1,53 @@
+.ProductDetail {
+  width: 100%;
+}
+.ProductName {
+  width: 250px;
+}
+.MathSym {
+  background-color: #f6f6f6;
+  border-radius: 50%;
+  color: #50a207;
+}
+.MathSym:hover {
+  cursor: pointer;
+}
+
+.Qty {
+  border-radius: 15px;
+  text-align: center;
+  width: 6rem;
+}
+
+.PriceDiscount {
+  color: #b5b5b5;
+  text-decoration: line-through;
+}
+.DiscountedPrice {
+  color: #dd6241;
+}
+.ProductPrice {
+  align-self: center;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  width: 80px;
+}
+
+@media (max-width: 390px) {
+  .Qty {
+    width: 4rem !important;
+  }
+}
+
+@media (max-width: 321px) {
+  .Qty {
+    width: 2.8rem !important;
+  }
+}

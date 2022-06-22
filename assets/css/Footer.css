@@ -1,0 +1,92 @@
+.Footer {
+  background-image: url(/images/BG-footer.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+.col {
+  padding: 0px !important;
+}
+.contactTitel {
+  background: none !important;
+  border: none;
+  color: #469b5c !important;
+  font-weight: bold;
+  font-size: 18px;
+}
+.contactDetail {
+  background: none !important;
+  color: #757575 !important;
+  border: none;
+  margin-top: 0.3em;
+  font-size: 15px;
+}
+.contactDetail p {
+  margin: 0;
+}
+.img-QRcode {
+  width: 7rem;
+  border: 2px solid #d3d3d3;
+  box-sizing: border-box;
+  padding: 5px;
+}
+.img-Appstore,
+.img-Googlepay {
+  object-fit: contain;
+  width: 100px;
+}
+@media only screen and (max-width: 1200px) {
+  .contactDetail {
+    font-size: 13px;
+  }
+  .contactTitel {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .img-QRcode {
+    width: 60px;
+    padding: 3px;
+  }
+  .contactDetail {
+    font-size: 10px;
+  }
+  .contactTitel {
+    font-size: 12px;
+  }
+  .img-Appstore,
+  .img-Googlepay {
+    object-fit: contain;
+    width: 70px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .contactDetail {
+    font-size: 8px;
+  }
+  .contactTitel {
+    font-size: 10px;
+  }
+  .img-QRcode {
+    padding: 2px;
+    width: 50%;
+  }
+  .img-Appstore,
+  .img-Googlepay {
+    width: 38%;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .img-Appstore,
+  .img-Googlepay {
+    width: 40%;
+    margin-left: 1rem;
+  }
+  .img-QRcode {
+    width: 100px;
+    margin-top: 1rem;
+  }
+}

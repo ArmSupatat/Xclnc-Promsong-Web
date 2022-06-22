@@ -1,0 +1,62 @@
+.Application {
+  background-image: url('/images/BG-Application.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.font-ApplicationDownload {
+  font-size: 20px;
+}
+.container-ApplicationDownload img {
+  width: 45%;
+  cursor: pointer;
+}
+.img-Application {
+  width: 600px;
+  height: 450px;
+}
+.img-Logo {
+  width: 10rem;
+}
+.download-component {
+  width: 50%;
+}
+@media only screen and (max-width: 1260px) {
+  .img-Application {
+    width: 450px;
+    height: 350px;
+  }
+  .img-Logo {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .img-Application {
+    width: 450px;
+    height: 350px;
+  }
+  .img-Logo {
+    width: 40%;
+  }
+  .font-ApplicationDownload {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .img-Application {
+    width: 200px;
+    height: 150px;
+  }
+  .img-Logo {
+    width: 35%;
+  }
+  .container-ApplicationDownload img {
+    width: 30%;
+  }
+  .img-app {
+    width: 120px;
+  }
+  .download-component {
+    width: unset;
+  }
+}

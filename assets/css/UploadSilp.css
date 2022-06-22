@@ -1,0 +1,35 @@
+.upload-slip-card {
+  width: 70%;
+  margin: auto;
+}
+.upload-slip-content {
+  width: 40%;
+  margin: auto;
+}
+.v-text-field {
+  width: 100%;
+}
+.input-file {
+  width: 300px;
+}
+.upload-img {
+  width: 300px;
+}
+.v--modal-overlay {
+  height: 100% !important;
+}
+.text-loader {
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .upload-slip-card {
+    width: unset;
+  }
+  .upload-slip-content {
+    width: unset;
+  }
+  .upload-img {
+    width: 300px;
+  }
+}

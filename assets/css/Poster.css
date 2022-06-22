@@ -1,0 +1,33 @@
+.Topic-promotion {
+  background-image: url('/images/Rectangle.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: inherit;
+  align-content: center;
+}
+.v-application .text-lg-h2,
+.text-lg-h4,
+.text-lg-h6,
+.text-lg-h5 {
+  font-family: Prompt !important;
+}
+.xs-responsive {
+  display: none;
+}
+
+@media only screen and (max-width: 650px) {
+  .v-application .text-caption {
+    font-size: 0.3rem !important;
+    letter-spacing: 0rem !important;
+  }
+  .v-application p {
+    margin-bottom: 1px;
+  }
+  .lg-responsive {
+    display: none;
+  }
+  .xs-responsive {
+    display: unset;
+  }
+}

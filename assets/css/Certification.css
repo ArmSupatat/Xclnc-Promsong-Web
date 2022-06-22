@@ -1,0 +1,24 @@
+.container-Certification {
+  padding: 1em;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  background: #f6f5f1;
+}
+.logo-Certification {
+  width: fit-content;
+  height: fit-content;
+}
+@media only screen and (max-width: 860px) {
+  .logo-Certification {
+    width: 10%;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .logo-Certification {
+    width: 10%;
+  }
+  .container-Certification {
+    padding: 0em;
+  }
+}

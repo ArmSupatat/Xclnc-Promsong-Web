@@ -1,0 +1,14 @@
+.ProductFilter {
+  width: 80%;
+  height: fit-content;
+  margin-left: 1em;
+}
+.ProductCategory {
+  width: 20%;
+}
+@media only screen and (max-width: 600px) {
+  .ProductFilter {
+    width: 100%;
+    margin-left: 0px;
+  }
+}

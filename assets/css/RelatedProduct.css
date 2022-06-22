@@ -1,0 +1,53 @@
+.container-card-RelatedProduct {
+  width: 220px;
+  cursor: pointer;
+}
+.container-RelatedProduct {
+  height: 100%;
+}
+.text-lx-h5,
+.text-lg-h5 {
+  font-family: Prompt !important;
+}
+.col-RelatedProduct {
+  flex: 1;
+}
+.col-RelatedProduct .v-card {
+  height: 100%;
+}
+.col {
+  padding: 0px;
+}
+.row {
+  gap: 10px;
+}
+.imges-ProductReated {
+  object-fit: contain;
+  width: 180px;
+}
+
+@media only screen and (max-width: 1260px) {
+  .col-RelatedProduct {
+    flex: 0 0 20%;
+  }
+}
+@media only screen and (max-width: 780px) {
+  .imges-ProductReated {
+    width: 160px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .imges-ProductReated {
+    width: 140px;
+  }
+  .container-card-RelatedProduct {
+    height: 23rem;
+  }
+}
+@media only screen and (max-width: 400px) {
+}
+@media only screen and (max-width: 320px) {
+  .imges-ProductReated {
+    width: 130px;
+  }
+}

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Topbar />
+    <Topbar :checkLogin="true" />
     <MenuListOther />
     <v-container class="container-wrapper">
       <div class="SubNav-wrapper">

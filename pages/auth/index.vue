@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <Topbar />
+    <Topbar :checkLogin="checkLogin" />
     <v-container>
       <div class="py-5 hidden-xs-only">
         <a href="/" class="make--text">หน้าหลัก</a
@@ -93,62 +93,65 @@ export default Vue.extend({
       min: (v: any) =>
         v.length >= 8 || 'กรุณาใส่ รหัสผ่านมากกว่าหรือเท่ากับ 8 ตัว',
     },
+    checkLogin: false,
   }),
   methods: {
-    async onSubmit() {
-      try {
-        if (this.auth.channelName && this.auth.projCustCompanyCode) {
-          const response = await authen.login(
-            this.username,
-            this.password,
-            '',
-            {
-              macAddress: '',
-              brandName: '',
-              ipAddress: '',
-              deviceName: '',
-              deviceTypIdx: '',
-              osVersion: '',
-              productModel: '',
-            },
-            this.auth.channelName
-          )
-          const { alert } = response
-          if (alert.alertApiCode === '200') {
-            this.$store.commit('authStore/clearUsernamePassword')
-            this.$store.commit('otpStore/resetOTPModel')
-            this.$store.commit('authStore/setAuth', {
-              globalCode: response.globalCode,
-              comId: response.companyId,
-              levelId: response.levelId,
-              depId: response.departmentId,
-            })
-            this.$router.push('/')
-          } else {
-            this.error.message = alert.alertDisplay
-          }
-        } else {
-          const response = await authen.userRegisterGetChOTP(this.username)
-          const { getChOTP, alert } =
-            response && response.data ? response.data : null
-          if (alert[0].alertId === -1) {
-            const { refOTP, loginName } = getChOTP[0]
-            this.$store.commit('otpStore/setOTPModel', {
-              refOTP: refOTP,
-              mobile: loginName,
-            })
-            this.$store.commit('authStore/setAuth', {
-              username: this.username,
-              password: this.password,
-            })
-            this.$router.push('auth/verifyotp')
-          } else {
-            this.error.message = alert[0].alertDisplay
-          }
-        }
-      } catch (err) {
-        console.log(err)
-      }
+    onSubmit() {
+      this.checkLogin = true
+      this.$router.push('/')
+      // try {
+      //   if (this.auth.channelName && this.auth.projCustCompanyCode) {
+      //     const response = await authen.login(
+      //       this.username,
+      //       this.password,
+      //       '',
+      //       {
+      //         macAddress: '',
+      //         brandName: '',
+      //         ipAddress: '',
+      //         deviceName: '',
+      //         deviceTypIdx: '',
+      //         osVersion: '',
+      //         productModel: '',
+      //       },
+      //       this.auth.channelName
+      //     )
+      //     const { alert } = response
+      //     if (alert.alertApiCode === '200') {
+      //       this.$store.commit('authStore/clearUsernamePassword')
+      //       this.$store.commit('otpStore/resetOTPModel')
+      //       this.$store.commit('authStore/setAuth', {
+      //         globalCode: response.globalCode,
+      //         comId: response.companyId,
+      //         levelId: response.levelId,
+      //         depId: response.departmentId,
+      //       })
+      //       this.$router.push('/')
+      //     } else {
+      //       this.error.message = alert.alertDisplay
+      //     }
+      //   } else {
+      //     const response = await authen.userRegisterGetChOTP(this.username)
+      //     const { getChOTP, alert } =
+      //       response && response.data ? response.data : null
+      //     if (alert[0].alertId === -1) {
+      //       const { refOTP, loginName } = getChOTP[0]
+      //       this.$store.commit('otpStore/setOTPModel', {
+      //         refOTP: refOTP,
+      //         mobile: loginName,
+      //       })
+      //       this.$store.commit('authStore/setAuth', {
+      //         username: this.username,
+      //         password: this.password,
+      //       })
+      //       this.$router.push('auth/verifyotp')
+      //     } else {
+      //       this.error.message = alert[0].alertDisplay
+      //     }
+      //   }
+      // } catch (err) {
+      //   console.log(err)
+      // }
     },
   },
   computed: {

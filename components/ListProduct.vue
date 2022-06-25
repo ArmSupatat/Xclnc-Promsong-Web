@@ -21,20 +21,14 @@
         <v-item-group>
           <v-row class="flex">
             <v-col
-              v-for="(item, i) in listAllProduct"
+              v-for="(item, i) in mockListAllProduct"
               :key="item.id"
               class="col-gridProduct pb-2"
             >
               <v-card
                 outlined
                 height="100%"
-                class="
-                  d-flex
-                  align-center
-                  card
-                  justify-space-between
-                  flex-column
-                "
+                class="d-flex align-center card justify-space-between flex-column"
               >
                 <div class="container-GridProduct text-left d-flex flex-column">
                   <div class="d-flex flex-column">
@@ -42,10 +36,7 @@
                       <div class="d-flex">
                         <span
                           class="tagsell mr-2"
-                          v-if="
-                            parseFloat(item.salePrice) >
-                            parseFloat(item.unitPriceShow)
-                          "
+                          v-if="item.couponFlag === 'Y'"
                           >Sale</span
                         >
                         <div
@@ -73,7 +64,7 @@
                       </div>
                       <v-btn
                         icon
-                        v-if="auth.globalCode && item.useShopFlag === 'Y'"
+                        v-if="item.useShopFlag === 'Y'"
                         color="#DD6241"
                         @click="
                           changeStatus(
@@ -91,7 +82,7 @@
                       <v-btn
                         icon
                         class="Btn-favorite"
-                        v-if="auth.globalCode && item.useShopFlag === 'N'"
+                        v-if="item.useShopFlag === 'N'"
                         @click="
                           changeStatus(
                             i,
@@ -108,12 +99,7 @@
                     </div>
                   </div>
                   <div
-                    class="
-                      detail-GridProduct
-                      d-flex
-                      flex-column
-                      justify-space-between
-                    "
+                    class="detail-GridProduct d-flex flex-column justify-space-between"
                   >
                     <div
                       class="text-left d-flex flex-column"
@@ -150,16 +136,8 @@
                             parseFloat(item.salePrice) >
                             parseFloat(item.unitPriceShow)
                           "
-                          class="
-                            text-salePrice text-decoration-line-through
-                            make--text
-                            mr-2
-                          "
-                          >฿{{
-                            item.salePrice % 1 === 0
-                              ? Math.round(item.salePrice)
-                              : parseFloat(item.salePrice).toFixed(2)
-                          }}</span
+                          class="text-salePrice text-decoration-line-through make--text mr-2"
+                          >฿{{ item.salePrice }}</span
                         ><span
                           class="text-PriceShow font-weight-bold"
                           :style="`${
@@ -202,7 +180,7 @@
 
       <div v-else-if="filterStatus === 'list'" class="filter-list mt-3">
         <v-card
-          v-for="item in listAllProduct"
+          v-for="item in mockListAllProduct"
           :key="item.id"
           class="mt-2"
           outlined
@@ -282,10 +260,7 @@
                   </v-btn>
                 </div>
                 <div
-                  class="
-                    d-flex
-                    flex-sm-row flex-xl-row flex-lg-row flex-md-row flex-column
-                  "
+                  class="d-flex flex-sm-row flex-xl-row flex-lg-row flex-md-row flex-column"
                 >
                   <div class="d-flex flex-row align-center">
                     <span
@@ -293,10 +268,7 @@
                         parseFloat(item.salePrice) >
                         parseFloat(item.unitPriceShow)
                       "
-                      class="
-                        text-ProductList-salePrice text-decoration-line-through
-                        make--text
-                      "
+                      class="text-ProductList-salePrice text-decoration-line-through make--text"
                       >฿{{
                         item.salePrice % 1 === 0
                           ? Math.round(item.salePrice)
@@ -327,12 +299,7 @@
                     <v-btn
                       @click="addProductInBasket(item)"
                       block
-                      class="
-                        Btn-ProductList-addProduct
-                        titel
-                        rounded
-                        pa-xl-5 pa-lg-5
-                      "
+                      class="Btn-ProductList-addProduct titel rounded pa-xl-5 pa-lg-5"
                     >
                       <v-icon
                         class="Btn-ProductList-iconAddProduct mx-1 white--text"
@@ -415,6 +382,124 @@ export default Vue.extend({
     groupId: [] as number[],
     subGroupId: [] as number[],
     promotionId: 0 as number,
+    mockListAllProduct: [
+      {
+        productId: 1,
+        // promoFlag: 'Y',
+        // couponFlag: 'Y',
+        useShopFlag: 'N',
+        productName: 'เนื้อหมู',
+        uomCode: 'กิโลกรัม',
+        // salePrice: 130,
+        unitPriceShow: 130,
+        productImageFilePath: [
+          'https://i0.wp.com/www.freshfoodsbkk.com/wp-content/uploads/2017/08/Pork-Fillet.jpg?fit=500%2C500&ssl=1',
+        ],
+      },
+      {
+        productId: 2,
+        // promoFlag: 'Y',
+        // couponFlag: 'Y',
+        useShopFlag: 'N',
+        productName: 'น้ำมัน',
+        uomCode: 'ขวด',
+        // salePrice: 139,
+        unitPriceShow: 139,
+        productImageFilePath: [
+          'https://backend.tops.co.th/media/catalog/product/8/8/8850210000046_1.jpg',
+        ],
+      },
+      {
+        productId: 3,
+        // promoFlag: 'Y',
+        // couponFlag: 'Y',
+        useShopFlag: 'N',
+        productName: 'ซอสปรุงรสฝาเขียว',
+        uomCode: 'ขวด',
+        // salePrice: 37,
+        unitPriceShow: 37,
+        productImageFilePath: [
+          'https://www.goldenmountainsauce.com/uploads/articles_icon/1499139449.jpg',
+        ],
+      },
+      {
+        productId: 4,
+        // promoFlag: 'Y',
+        // couponFlag: 'Y',
+        useShopFlag: 'N',
+        productName: 'เนื้อไก่',
+        uomCode: 'กิโลกรัม',
+        // salePrice: 90,
+        unitPriceShow: 90,
+        productImageFilePath: [
+          'https://cf.shopee.co.th/file/c1e92fbbfcd0ad5e488e0c76db1844f3',
+        ],
+      },
+      {
+        productId: 5,
+        // promoFlag: 'Y',
+        // couponFlag: 'Y',
+        useShopFlag: 'N',
+        productName: 'ไข่',
+        uomCode: 'แผง',
+        // salePrice: 105,
+        unitPriceShow: 105,
+        productImageFilePath: [
+          'https://image.thainewsonline.co/uploads/images/contents/w1024/2022/01/XIItkFwR0Yg7vJUTpx5s.webp',
+        ],
+      },
+      {
+        productId: 6,
+        // promoFlag: 'Y',
+        // couponFlag: 'Y',
+        useShopFlag: 'N',
+        productName: 'น้ำตาล',
+        uomCode: 'ถุง',
+        // salePrice: 22,
+        unitPriceShow: 22,
+        productImageFilePath: [
+          'https://backend.tops.co.th/media/catalog/product/8/8/8850256100106_e17-03-2020.jpg',
+        ],
+      },
+      {
+        productId: 7,
+        useShopFlag: 'N',
+        productName: 'รสดี',
+        uomCode: 'ถุง',
+        unitPriceShow: 26,
+        productImageFilePath: ['https://inwfile.com/s-fn/uhv4qi.jpg'],
+      },
+      {
+        productId: 8,
+        useShopFlag: 'N',
+        productName: 'ซอสมะเขือเทศ',
+        uomCode: 'ขวด',
+        unitPriceShow: 28,
+        productImageFilePath: [
+          'https://backend.tops.co.th/media/catalog/product/8/8/8850343000166_1.jpg',
+        ],
+      },
+      {
+        productId: 9,
+        useShopFlag: 'N',
+        productName: 'เกลือ',
+        uomCode: 'ถุง',
+        unitPriceShow: 14,
+        productImageFilePath: [
+          'https://backend.tops.co.th/media/catalog/product/8/8/8850069010074_e13-11-2020.jpg',
+        ],
+      },
+      {
+        productId: 10,
+        useShopFlag: 'N',
+        productName: 'ซอสหอยนางรม',
+        uomCode: 'ขวด',
+        unitPriceShow: 34,
+        productImageFilePath: [
+          'https://backend.tops.co.th/media/catalog/product/8/8/8850038400028_e08-11-2018.jpg',
+        ],
+      },
+    ] as any[],
   }),
   methods: {
     addProductInBasket(product: Product) {
@@ -444,7 +529,7 @@ export default Vue.extend({
       orderBy: string,
       listBrands: number[]
     ) {
-      this.loading = true
+      // this.loading = true
       this.currentPage = currentPage
       await searchProduct
         .serarchProductName(
@@ -468,7 +553,7 @@ export default Vue.extend({
       orderBy: string,
       promoFlag: string
     ) {
-      this.loading = true
+      // this.loading = true
       this.currentPage = currentPage
       await getProduct
         .getAllProduct(

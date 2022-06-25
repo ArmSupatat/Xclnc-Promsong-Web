@@ -1,27 +1,22 @@
 <template>
   <v-app>
-    <Topbar />
+    <Topbar :checkLogin="true" />
     <Navigationdrawers class="hidden-sm-and-up" />
     <v-container class="d-flex flex-column h-full">
       <div class="py-5 hidden-xs-only">
         <a href="/" class="make--text">หน้าหลัก</a
         ><span class="mx-3 make--text">/</span
-        ><a href="#" class="secondary--text">รถเข็น ({{ listCart.length }})</a>
+        ><a href="#" class="secondary--text">รถเข็น (4)</a>
       </div>
       <v-row dense>
         <v-col xs="12" sm="12" lg="8">
           <div class="d-flex justify-space-between">
-            <h2>รถเข็น ({{ listCart.length }})</h2>
+            <h2>รถเข็น (4)</h2>
             <a @click="deleteAll" v-if="listCart.length > 0">
               <v-card
                 outlined
                 height="100%"
-                class="
-                  d-flex
-                  align-center
-                  pa-1 pa-lg-3 pa-md-2 pa-sm-2
-                  flex-row
-                "
+                class="d-flex align-center pa-1 pa-lg-3 pa-md-2 pa-sm-2 flex-row"
               >
                 <div class="d-flex flex-row">
                   <img src="/images/trash.svg" />
@@ -32,16 +27,12 @@
           </div>
         </v-col>
       </v-row>
-      <v-row
-        dense
-        class="d-flex flex-column flex-sm-row"
-        v-if="listCart.length > 0"
-      >
+      <v-row dense class="d-flex flex-column flex-sm-row">
         <v-col lg="8">
           <Cart
             @qty="qty"
             @deleteCartItem="deleteCartItem"
-            v-for="(cart, i) in listCart"
+            v-for="(cart, i) in mockListCart"
             :key="cart.productId"
             :cart="cart"
             :index="i"
@@ -61,11 +52,11 @@
             @submitPayment="goToPayment"
         /></v-col>
       </v-row>
-      <v-row dense v-else>
+      <!-- <v-row dense v-else>
         <v-col class="pa-8 text-center">
           <nuxt-link class="product" to="/product">กรุณาเลือกสินค้า</nuxt-link>
         </v-col>
-      </v-row>
+      </v-row> -->
     </v-container>
     <Footer />
   </v-app>
@@ -92,7 +83,7 @@ export default Vue.extend({
     Cart,
     SummaryOrder,
   },
-  middleware: 'authenticated',
+  // middleware: 'authenticated',
   data() {
     return {
       sumPoBeforeDiscAmt: 0 as number,
@@ -104,6 +95,48 @@ export default Vue.extend({
       advPoAmt: 0 as number,
       apAdvNoInvBfAmt: 0 as number,
       genQrAmt: 0 as number,
+      mockListCart: [
+        {
+          productId: 1,
+          productName: 'เนื้อหมู',
+          uomCode: 'กิโลกรัม',
+          salePrice: 130,
+          stepQty: 2,
+          productImageFilePath: [
+            'https://i0.wp.com/www.freshfoodsbkk.com/wp-content/uploads/2017/08/Pork-Fillet.jpg?fit=500%2C500&ssl=1',
+          ],
+        },
+        {
+          productId: 2,
+          productName: 'น้ำมัน',
+          uomCode: 'ขวด',
+          salePrice: 139,
+          stepQty: 4,
+          productImageFilePath: [
+            'https://backend.tops.co.th/media/catalog/product/8/8/8850210000046_1.jpg',
+          ],
+        },
+        {
+          productId: 3,
+          productName: 'ซอสปรุงรสฝาเขียว',
+          uomCode: 'ขวด',
+          salePrice: 37,
+          stepQty: 2,
+          productImageFilePath: [
+            'https://www.goldenmountainsauce.com/uploads/articles_icon/1499139449.jpg',
+          ],
+        },
+        {
+          productId: 4,
+          productName: 'เนื้อไก่',
+          uomCode: 'กิโลกรัม',
+          salePrice: 90,
+          stepQty: 3,
+          productImageFilePath: [
+            'https://cf.shopee.co.th/file/c1e92fbbfcd0ad5e488e0c76db1844f3',
+          ],
+        },
+      ] as any[],
     }
   },
   created() {

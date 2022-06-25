@@ -3,12 +3,7 @@
     <v-card
       outlined
       height="100%"
-      class="
-        d-flex
-        align-center
-        pa-1 pa-lg-3 pa-md-2 pa-sm-2
-        flex-sm-row flex-column
-      "
+      class="d-flex align-center pa-1 pa-lg-3 pa-md-2 pa-sm-2 flex-sm-row flex-column"
     >
       <v-img
         min-width="100"
@@ -71,12 +66,7 @@
                     v-if="cart.specialPrice > 0"
                     class="PriceDiscount font-weight-bold"
                   >
-                    {{
-                      CurrencyFormatter.addCurrencyFormat(
-                        parseFloat(cart.salePrice),
-                        true
-                      )
-                    }}
+                    {{ cart.salePrice }}
                   </span>
                 </v-col>
                 <v-col class="px-4">

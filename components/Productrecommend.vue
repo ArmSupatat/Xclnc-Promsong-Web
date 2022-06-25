@@ -4,11 +4,7 @@
       ><div class="text-center d-flex flex-column" style="z-index: 2">
         <div class="text-center d-flex flex-column">
           <span
-            class="
-              groupTital--text
-              font-weight-regular
-              text-lg-h4 text-md-h5 text-sm-h6 text-subtitles
-            "
+            class="groupTital--text font-weight-regular text-lg-h4 text-md-h5 text-sm-h6 text-subtitles"
           >
             สินค้าแนะนำ
           </span>
@@ -29,18 +25,12 @@
               show-arrows
             >
               <v-slide-item
-                v-for="(item, i) in listAllProduct"
+                v-for="(item, i) in mockListAllProduct"
                 :key="item.productId"
               >
                 <v-card
                   outlined
-                  class="
-                    ma-lg-2 ma-md-2 ma-sm-1 ma-1
-                    d-flex
-                    flex-column
-                    justify-space-between
-                    pa-lg-3 pa-2
-                  "
+                  class="ma-lg-2 ma-md-2 ma-sm-1 ma-1 d-flex flex-column justify-space-between pa-lg-3 pa-2"
                   style="border-radius: 6px"
                 >
                   <div class="d-flex flex-row justify-space-between">
@@ -73,7 +63,7 @@
                     </div>
                     <v-btn
                       icon
-                      v-if="auth.globalCode && item.useShopFlag === 'Y'"
+                      v-if="item.useShopFlag === 'Y'"
                       color="#DD6241"
                       @click="changeStatus(i, item.productBarcode, 'N')"
                       class="Btn-favorite"
@@ -83,7 +73,7 @@
                     <v-btn
                       icon
                       class="Btn-favorite"
-                      v-if="auth.globalCode && item.useShopFlag === 'N'"
+                      v-if="item.useShopFlag === 'N'"
                       @click="changeStatus(i, item.productBarcode, 'Y')"
                       color="#DBDEE7"
                     >
@@ -117,11 +107,7 @@
                               parseFloat(item.salePrice) >
                               parseFloat(item.unitPriceShow)
                             "
-                            class="
-                              text-salePrice text-decoration-line-through
-                              make--text
-                              mr-2
-                            "
+                            class="text-salePrice text-decoration-line-through make--text mr-2"
                             >฿{{
                               item.salePrice % 1 === 0
                                 ? Math.round(item.salePrice)
@@ -147,13 +133,7 @@
                             <CartQty :pItem="item" />
                           </div>
                           <v-btn
-                            class="
-                              Btn-DetailAddProduct
-                              titel
-                              rounded
-                              space
-                              w-full
-                            "
+                            class="Btn-DetailAddProduct titel rounded space w-full"
                             @click="addProductInBasket(item)"
                           >
                             <v-icon class="text-DetailIcon mx-1 white--text"
@@ -215,6 +195,106 @@ export default Vue.extend({
   data: () => ({
     dialog: false,
     listAllProduct: [] as any[],
+    mockListAllProduct: [
+      {
+        productId: 1,
+        useShopFlag: 'N',
+        productName: 'เนื้อหมู',
+        uomCode: 'กิโลกรัม',
+        unitPriceShow: 130,
+        productImageFilePath: [
+          'https://i0.wp.com/www.freshfoodsbkk.com/wp-content/uploads/2017/08/Pork-Fillet.jpg?fit=500%2C500&ssl=1',
+        ],
+      },
+      {
+        productId: 2,
+        useShopFlag: 'N',
+        productName: 'น้ำมัน',
+        uomCode: 'ขวด',
+        unitPriceShow: 139,
+        productImageFilePath: [
+          'https://backend.tops.co.th/media/catalog/product/8/8/8850210000046_1.jpg',
+        ],
+      },
+      {
+        productId: 3,
+        useShopFlag: 'N',
+        productName: 'ซอสปรุงรสฝาเขียว',
+        uomCode: 'ขวด',
+        unitPriceShow: 37,
+        productImageFilePath: [
+          'https://www.goldenmountainsauce.com/uploads/articles_icon/1499139449.jpg',
+        ],
+      },
+      {
+        productId: 4,
+        useShopFlag: 'N',
+        productName: 'เนื้อไก่',
+        uomCode: 'กิโลกรัม',
+        unitPriceShow: 90,
+        productImageFilePath: [
+          'https://cf.shopee.co.th/file/c1e92fbbfcd0ad5e488e0c76db1844f3',
+        ],
+      },
+      {
+        productId: 5,
+        useShopFlag: 'N',
+        productName: 'ไข่',
+        uomCode: 'แผง',
+        unitPriceShow: 105,
+        productImageFilePath: [
+          'https://image.thainewsonline.co/uploads/images/contents/w1024/2022/01/XIItkFwR0Yg7vJUTpx5s.webp',
+        ],
+      },
+      {
+        productId: 6,
+        useShopFlag: 'N',
+        productName: 'น้ำตาล',
+        uomCode: 'ถุง',
+        unitPriceShow: 22,
+        productImageFilePath: [
+          'https://backend.tops.co.th/media/catalog/product/8/8/8850256100106_e17-03-2020.jpg',
+        ],
+      },
+      {
+        productId: 7,
+        useShopFlag: 'N',
+        productName: 'รสดี',
+        uomCode: 'ถุง',
+        unitPriceShow: 26,
+        productImageFilePath: ['https://inwfile.com/s-fn/uhv4qi.jpg'],
+      },
+      {
+        productId: 8,
+        useShopFlag: 'N',
+        productName: 'ซอสมะเขือเทศ',
+        uomCode: 'ขวด',
+        unitPriceShow: 28,
+        productImageFilePath: [
+          'https://backend.tops.co.th/media/catalog/product/8/8/8850343000166_1.jpg',
+        ],
+      },
+      {
+        productId: 9,
+        useShopFlag: 'N',
+        productName: 'เกลือ',
+        uomCode: 'ถุง',
+        unitPriceShow: 14,
+        productImageFilePath: [
+          'https://backend.tops.co.th/media/catalog/product/8/8/8850069010074_e13-11-2020.jpg',
+        ],
+      },
+      {
+        productId: 10,
+        useShopFlag: 'N',
+        productName: 'ซอสหอยนางรม',
+        uomCode: 'ขวด',
+        unitPriceShow: 34,
+        productImageFilePath: [
+          'https://backend.tops.co.th/media/catalog/product/8/8/8850038400028_e08-11-2018.jpg',
+        ],
+      },
+    ] as any[],
   }),
   methods: {
     addProductInBasket(product: Product) {

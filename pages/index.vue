@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <div class="Homepage">
-      <Topbar />
+      <Topbar :checkLogin="true" />
       <Poster />
       <Promotion />
       <Groupproduct />

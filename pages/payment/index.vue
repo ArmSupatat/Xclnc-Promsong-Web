@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <Topbar />
+    <Topbar :checkLogin="true" />
     <Navigationdrawers class="hidden-sm-and-up" />
     <v-container>
       <div class="py-5 hidden-xs-only">
@@ -14,13 +14,7 @@
           <v-col lg="8">
             <v-card
               outlined
-              class="
-                d-flex
-                flex-column
-                pa-1 pa-lg-4 pa-md-2 pa-sm-2
-                mb-4
-                borad-0
-              "
+              class="d-flex flex-column pa-1 pa-lg-4 pa-md-2 pa-sm-2 mb-4 borad-0"
             >
               <h4 class="mb-4">เลือกเวลาจัดส่ง</h4>
               <v-row dense>
@@ -51,7 +45,7 @@
                     ></v-date-picker>
                   </v-menu>
                 </v-col>
-                <v-col lg="6">
+                <!-- <v-col lg="6">
                   <v-autocomplete
                     v-model="selectedTime"
                     :items="listTimeFilter"
@@ -75,7 +69,7 @@
                       <span v-text="item.timeShow"></span>
                     </template>
                   </v-autocomplete>
-                </v-col>
+                </v-col> -->
               </v-row>
 
               <v-row dense>
@@ -99,13 +93,7 @@
             </v-card>
             <v-card
               outlined
-              class="
-                d-flex
-                flex-column
-                pa-1 pa-lg-4 pa-md-2 pa-sm-2
-                mb-4
-                borad-0
-              "
+              class="d-flex flex-column pa-1 pa-lg-4 pa-md-2 pa-sm-2 mb-4 borad-0"
             >
               <div class="d-flex">
                 <h4>คูปอง</h4>
@@ -119,14 +107,7 @@
               <template v-if="selectedCoupon.length === 0">
                 <v-card
                   @click="$modal.show('modal-coupon')"
-                  class="
-                    w-fit
-                    cursor-pointer
-                    pa-1 pa-lg-3 pa-md-2 pa-sm-2
-                    mt-4
-                    theme--light
-                    v-sheet--outlined
-                  "
+                  class="w-fit cursor-pointer pa-1 pa-lg-3 pa-md-2 pa-sm-2 mt-4 theme--light v-sheet--outlined"
                 >
                   เลือกคูปอง
                 </v-card>
@@ -163,12 +144,7 @@
                   @closed="$modal.hide('modal-coupon')"
                 >
                   <div
-                    class="
-                      d-flex
-                      flex-column
-                      justify-space-between
-                      pa-xs-8 pa-sm-8 pa-md-6 pa-lg-6 pa-2
-                    "
+                    class="d-flex flex-column justify-space-between pa-xs-8 pa-sm-8 pa-md-6 pa-lg-6 pa-2"
                     style="overflow: auto; height: 100%"
                   >
                     <div class="modal-content">
@@ -343,7 +319,7 @@
               <v-radio-group v-model="paymentType" row>
                 <v-row>
                   <v-col
-                    v-for="payment in listPayment"
+                    v-for="payment in mockListPayment"
                     :key="payment.paymentTypIdx"
                     lg="4"
                   >
@@ -493,7 +469,7 @@ export default APICalPurOrd.extend({
   components: {
     CouponCard,
   },
-  middleware: ['checkPoId'],
+  // middleware: ['checkPoId'],
   data() {
     return {
       cart: [] as object[],
@@ -530,21 +506,27 @@ export default APICalPurOrd.extend({
       listTime: [],
       listTimeFilter: [],
       selectedTime: null as string | null,
+      mockListPayment: [
+        {
+          paymentTypIdx: 1,
+          paymentTypIdxXShow: 'QR Code',
+        },
+      ] as any[],
     }
   },
   created() {
     this.cart = this.listCart
   },
-  async mounted() {
-    if (this.poId) {
-      await this.calculatePrice()
-      await this.getListCoupon()
-      await this.getShipRouteDelivery()
-      await this.getLookUpPaymentTypIdx()
-    } else {
-      this.$router.push('/product')
-    }
-  },
+  // async mounted() {
+  //   if (this.poId) {
+  //     await this.calculatePrice()
+  //     await this.getListCoupon()
+  //     await this.getShipRouteDelivery()
+  //     await this.getLookUpPaymentTypIdx()
+  //   } else {
+  //     this.$router.push('/product')
+  //   }
+  // },
   methods: {
     allowedDates(val: any) {
       const valDate = new Date(val)

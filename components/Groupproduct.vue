@@ -3,11 +3,7 @@
     <v-container
       ><div class="text-center d-flex flex-column">
         <span
-          class="
-            groupTital--text
-            font-weight-regular
-            text-lg-h4 text-md-h5 text-sm-h6 text-subtitles
-          "
+          class="groupTital--text font-weight-regular text-lg-h4 text-md-h5 text-sm-h6 text-subtitles"
         >
           กลุ่มสินค้า
         </span>
@@ -29,7 +25,7 @@
               class="container-groupProduct d-flex justify-center"
             >
               <v-slide-item
-                v-for="Product in listGroupproduct"
+                v-for="Product in mockListGroupproduct"
                 :key="Product.productGroupName"
                 active-class="selectProductGroups"
               >
@@ -72,6 +68,62 @@ export default Vue.extend({
   data: () => ({
     loading: true as boolean,
     listGroupproduct: [] as object[],
+    mockListGroupproduct: [
+      {
+        productGroupId: 1,
+        productGroupName: 'ผัก',
+        productGroupImageFilePath: [
+          'https://backend.tops.co.th/media//catalog/product/0/0/0000030066014_1.jpg',
+        ],
+      },
+      {
+        productGroupId: 2,
+        productGroupName: 'เนื้อหมู',
+        productGroupImageFilePath: [
+          'https://i0.wp.com/www.freshfoodsbkk.com/wp-content/uploads/2017/08/Pork-Fillet.jpg?fit=500%2C500&ssl=1',
+        ],
+      },
+      {
+        productGroupId: 3,
+        productGroupName: 'ไข่',
+        productGroupImageFilePath: [
+          'https://image.thainewsonline.co/uploads/images/contents/w1024/2022/01/XIItkFwR0Yg7vJUTpx5s.webp',
+        ],
+      },
+      {
+        productGroupId: 4,
+        productGroupName: 'ผลไม้',
+        productGroupImageFilePath: [
+          'https://i0.wp.com/www.freshfoodsbkk.com/wp-content/uploads/2017/08/orange.jpg?fit=500%2C500',
+        ],
+      },
+      {
+        productGroupId: 5,
+        productGroupName: 'น้ำตาล',
+        productGroupImageFilePath: [
+          'https://backend.tops.co.th/media/catalog/product/8/8/8850256100106_e17-03-2020.jpg',
+        ],
+      },
+      {
+        productGroupId: 6,
+        productGroupName: 'รสดี',
+        productGroupImageFilePath: ['https://inwfile.com/s-fn/uhv4qi.jpg'],
+      },
+      {
+        productGroupId: 7,
+        productGroupName: 'น้ำมัน',
+        productGroupImageFilePath: [
+          'https://backend.tops.co.th/media/catalog/product/8/8/8850210000046_1.jpg',
+        ],
+      },
+      {
+        productGroupId: 8,
+        productGroupName: 'ซอสมะเขือเทศ',
+        productGroupImageFilePath: [
+          'https://backend.tops.co.th/media/catalog/product/8/8/8850343000166_1.jpg',
+        ],
+      },
+    ] as any[],
   }),
   methods: {
     selectProductGroup(groupId: number, groupName: string) {

@@ -191,13 +191,7 @@
                   <div class="py-8 px-4">
                     <div id="search">
                       <div
-                        class="
-                          container-search-input
-                          d-flex
-                          flex-row
-                          align-center
-                          mb-4
-                        "
+                        class="container-search-input d-flex flex-row align-center mb-4"
                       >
                         <span class="material-icons" style="color: #469b5c"
                           >search</span
@@ -229,23 +223,10 @@
           </v-navigation-drawer>
 
           <div
-            class="
-              container-search
-              d-flex
-              flex-column
-              justify-end
-              flex-grow-1
-              ml-lx-5 ml-lg-5 ml-md-5 ml-sm-3 ml-2
-            "
+            class="container-search d-flex flex-column justify-end flex-grow-1 ml-lx-5 ml-lg-5 ml-md-5 ml-sm-3 ml-2"
           >
             <div
-              class="
-                d-flex
-                flex-row
-                justify-space-between
-                align-center
-                respon-space
-              "
+              class="d-flex flex-row justify-space-between align-center respon-space"
             >
               <div id="search" class="hidden">
                 <div
@@ -264,15 +245,14 @@
                 </div>
               </div>
 
-              <div v-if="auth.globalCode">
+              <div v-if="checkLogin === true && login === true">
                 <div class="d-flex">
-                  <div class="pt-4 mr-6" style="width: 150px" v-if="loading">
+                  <!-- <div class="pt-4 mr-6" style="width: 150px" v-if="loading">
                     <v-skeleton-loader type="paragraph"></v-skeleton-loader>
-                  </div>
+                  </div> -->
                   <div
                     class="d-flex flex-column mt-2 cursor-pointer"
                     @click="$router.push('/profile/setting-profile')"
-                    v-else
                   >
                     <v-row class="hidden">
                       <div>
@@ -282,9 +262,7 @@
                           src="/images/account-circle.png"
                         ></v-img>
                       </div>
-                      <v-col>
-                        <span>{{ personFirstname }}</span></v-col
-                      >
+                      <v-col> <span>อนันทรัพย์</span></v-col>
                     </v-row>
                     <v-row class="hidden">
                       <div>
@@ -295,12 +273,8 @@
                         ></v-img>
                       </div>
                       <v-col>
-                        <p class="m-0 shop-name">
-                          {{ shopName }}
-                        </p>
-                        <p class="m-0 shop-name" v-if="branchCode === '00000'">
-                          (สำนักงานใหญ่)
-                        </p>
+                        <p class="m-0 shop-name">Papa mama shop</p>
+                        <p class="m-0 shop-name">(สำนักงานใหญ่)</p>
                       </v-col>
                     </v-row>
                   </div>
@@ -321,7 +295,7 @@
                       <v-col class="cart" @click="$router.push('/cart')">
                         <v-badge overlap color="#DD6241">
                           <template v-slot:badge>
-                            <span>{{ sumProductInBasket }}</span>
+                            <span>4</span>
                           </template>
                           <v-img
                             class="ml-1"
@@ -355,11 +329,7 @@
                     <v-col>
                       <button
                         @click="$modal.show('modal-account')"
-                        class="
-                          btn-signin
-                          mx-sm-1
-                          text-md-subtitle-1 text-sm-body-2
-                        "
+                        class="btn-signin mx-sm-1 text-md-subtitle-1 text-sm-body-2"
                       >
                         เข้าสู่ระบบ
                       </button>
@@ -413,11 +383,7 @@
                     <v-col>
                       <button
                         @click="$router.push('/register')"
-                        class="
-                          btn-signup
-                          mx-sm-1 mx-xs-1
-                          text-md-subtitle-1 text-sm-body-2
-                        "
+                        class="btn-signup mx-sm-1 mx-xs-1 text-md-subtitle-1 text-sm-body-2"
                       >
                         สมัครสมาชิก
                       </button>
@@ -534,11 +500,7 @@
                               <v-list-item-subtitle class="d-flex"
                                 ><button
                                   @click="$router.push('/auth')"
-                                  class="
-                                    btn-signin
-                                    mx-sm-1
-                                    text-md-subtitle-1 text-sm-body-2
-                                  "
+                                  class="btn-signin mx-sm-1 text-md-subtitle-1 text-sm-body-2"
                                 >
                                   เข้าสู่ระบบ
                                 </button>
@@ -550,11 +512,7 @@
 
                                 <button
                                   @click="$router.push('/register')"
-                                  class="
-                                    btn-signup
-                                    mx-sm-1 mx-xs-1
-                                    text-md-subtitle-1 text-sm-body-2
-                                  "
+                                  class="btn-signup mx-sm-1 mx-xs-1 text-md-subtitle-1 text-sm-body-2"
                                 >
                                   สมัครสมาชิก
                                 </button>
@@ -598,6 +556,9 @@ import { command105101Group3 } from '~/api/Profile/Command105101Group3'
 import { groupBusiness } from '~/api/Authenticate/CommandGroupBusiness'
 
 export default Vue.extend({
+  props: {
+    checkLogin: Boolean,
+  },
   data: () => ({
     drawer: false,
     group: null,
@@ -606,6 +567,7 @@ export default Vue.extend({
     shopName: '' as string,
     branchCode: '' as string,
     loading: true as boolean,
+    login: true as boolean,
 
     choiceSearch: [
       { link: '/product', topic: 'สินค้า' },
@@ -702,23 +664,24 @@ export default Vue.extend({
         this.keywordSearch = ''
       }
     },
-    async logout() {
-      let loader = this.$loading.show()
-      const response = await authen.logout(
-        this.auth.globalCode,
-        this.auth.channelName
-      )
-      if (response && response.alert.length > 0) {
-        const alert = response.alert[0]
-        if (alert.alertApiCode === '200') {
-          this.$store.commit('authStore/logout')
-          this.$forceUpdate()
-          this.$router.push('/')
-        } else {
-          console.log(alert.alertDisplay)
-        }
-      }
-      loader.hide()
+    logout() {
+      // let loader = this.$loading.show()
+      // const response = await authen.logout(
+      //   this.auth.globalCode,
+      //   this.auth.channelName
+      // )
+      // if (response && response.alert.length > 0) {
+      //   const alert = response.alert[0]
+      //   if (alert.alertApiCode === '200') {
+      //     this.$store.commit('authStore/logout')
+      //     this.$forceUpdate()
+      this.login = false
+      this.$router.push('/')
+      //     } else {
+      //       console.log(alert.alertDisplay)
+      //     }
+      //   }
+      //   loader.hide()
     },
   },
 })

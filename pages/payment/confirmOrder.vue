@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <Topbar />
+    <Topbar :checkLogin="true" />
     <Navigationdrawers class="hidden-sm-and-up" />
     <v-container>
       <div class="py-5 hidden-xs-only">
@@ -12,32 +12,29 @@
         <h4>ชำระเงิน</h4>
         <div class="d-flex flex-column align-center">
           <img src="/images/promptpay.png" height="70" />
-          <div class="text-loader" v-if="loading">
+          <!-- <div class="text-loader" v-if="loading">
             <v-skeleton-loader type="text"></v-skeleton-loader>
-          </div>
-          <h4 v-else>หมายเลขอ้างอิง 1 : {{ ref1 ? ref1 : '-' }}</h4>
-          <div class="text-loader" v-if="loading">
+          </div> -->
+          <h4>หมายเลขอ้างอิง 1 : COM650000007</h4>
+          <!-- <div class="text-loader" v-if="loading">
             <v-skeleton-loader type="text"></v-skeleton-loader>
-          </div>
-          <h4 v-else>หมายเลขอ้างอิง 2 : {{ ref2 ? ref2 : '-' }}</h4>
-          <div class="text-loader" v-if="loading">
+          </div> -->
+          <h4>หมายเลขอ้างอิง 2 : 2009021452161P22</h4>
+          <!-- <div class="text-loader" v-if="loading">
             <v-skeleton-loader type="text, image"></v-skeleton-loader>
           </div>
-          <h4 v-else>หมายเลขอ้างอิง 3 : {{ ref3 ? ref3 : '-' }}</h4>
+          <h4 v-else>หมายเลขอ้างอิง 3 : {{ ref3 ? ref3 : '-' }}</h4> -->
 
-          <vue-qrcode :width="250" :value="qrCode" />
+          <img src="/images/qrcode2.png" height="200" />
+
+          <!-- <vue-qrcode :width="250" :value="qrCode" /> -->
           <p class="NetPrice font-weight-bold">
             <span> ฿ </span>
-            <span class="NetPriceValue">{{
-              CurrencyFormatter.addCurrencyFormat(
-                this.advPoAmt > 0 ? this.advPoAmt : this.genQrAmt,
-                false
-              )
-            }}</span>
+            <span class="NetPriceValue">1210.00</span>
           </p>
           <p class="font-weight-bold">
             <span> กรุณาชำระเงินภายใน </span>
-            <span class="CoutingTime">{{ countingTime }}</span>
+            <span class="CoutingTime" id="countdown"></span>
           </p>
           <p>
             กรุณาสแกน QR Code เพื่อทำการชำระเงิน หรือ
@@ -48,7 +45,7 @@
             ></a>
             เพื่อนำไปชำระที่ Application ของธนาคาร
           </p>
-          <template v-if="isEnableUploadSlip">
+          <template>
             <span class="font-weight-bold">
               ระบบจะปิดบิลอัติโนมัติภายใน 30 วินาทีหลังจากการชำระเงิน
             </span>
@@ -145,7 +142,7 @@ export default CaculatePrice.extend({
   components: {
     VueQrcode,
   },
-  middleware: ['checkPoId'],
+  // middleware: ['checkPoId'],
   mixins: [CaculatePrice],
   data() {
     return {
@@ -174,15 +171,16 @@ export default CaculatePrice.extend({
   created() {
     this.cart = this.listCart
   },
-  async mounted() {
-    if (this.poId) {
-      await this.calculatePrice()
-      await this.initialValues()
-      await this.initialTimeout()
-      await this.initCheckInquiryTransBillPayment()
-    } else {
-      this.$router.push('/product')
-    }
+  mounted() {
+    let timeleft = 30
+    const downloadTimer = setInterval(function () {
+      if (timeleft <= 0) {
+        clearInterval(downloadTimer)
+      } else {
+        document.getElementById('countdown').innerHTML = '0:' + timeleft
+      }
+      timeleft -= 1
+    }, 1000)
   },
   destroyed() {
     clearInterval(this.intervalTime)

@@ -2,19 +2,13 @@
   <div class="d-flex flex-column">
     <div class="container-ProductFilter">
       <h2
-        class="
-          text-lg-h5 text-md-h6 text-sm-subtitles-2 text-subtitle-1
-          font-weight-bold
-        "
+        class="text-lg-h5 text-md-h6 text-sm-subtitles-2 text-subtitle-1 font-weight-bold"
         v-if="keywordSearch"
       >
         ผลการค้นหา “{{ keywordSearch }}”
       </h2>
       <h2
-        class="
-          text-lg-h5 text-md-h6 text-sm-subtitles-2 text-subtitle-1
-          font-weight-bold
-        "
+        class="text-lg-h5 text-md-h6 text-sm-subtitles-2 text-subtitle-1 font-weight-bold"
         v-else
       >
         สินค้าทั้งหมด
@@ -23,11 +17,7 @@
     <div class="d-flex flex-row justify-space-between">
       <div v-if="keywordSearch" class="d-flex flex-row align-center">
         <span
-          class="
-            success--text
-            mr-2
-            text-lg-h6 text-md-subtitle-1 text-subtitle-2
-          "
+          class="success--text mr-2 text-lg-h6 text-md-subtitle-1 text-subtitle-2"
           >{{ countProduct }}</span
         ><span
           class="text-lg-body-1 text-lg-h6 text-md-subtitle-1 text-subtitle-2"
@@ -37,12 +27,9 @@
       </div>
       <div v-else class="d-flex flex-row align-center">
         <span
-          class="
-            success--text
-            mr-2
-            text-lg-body-1 text-lg-h6 text-md-subtitle-1 text-subtitle-2
-          "
-          >{{ countProduct }}</span
+          class="success--text mr-2 text-lg-body-1 text-lg-h6 text-md-subtitle-1 text-subtitle-2"
+        >
+          10 </span
         ><span
           class="text-lg-body-1 text-lg-h6 text-md-subtitle-1 text-subtitle-2"
         >

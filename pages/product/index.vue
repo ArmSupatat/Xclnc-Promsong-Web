@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <Topbar />
+    <Topbar :checkLogin="true" />
     <Navigationdrawers class="hidden-sm-and-up" />
     <v-container class="d-flex flex-column">
       <div class="py-5 hidden-xs-only">

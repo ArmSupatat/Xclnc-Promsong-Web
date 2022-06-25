@@ -9,7 +9,7 @@
           ></v-row>
         </div>
         <div v-else>
-          <div v-for="item in listAllBrand" :key="item.brandId">
+          <div v-for="item in mockListAllBrand" :key="item.brandId">
             <v-checkbox
               v-model="listSelectedBrand"
               :label="item.brandName"
@@ -34,6 +34,16 @@ export default Vue.extend({
     loading: true as boolean,
     listAllBrand: [] as object[],
     listSelectedBrand: [] as number[],
+    mockListAllBrand: [
+      {
+        brandName: 'ซีพี',
+        brandId: 1,
+      },
+      {
+        brandName: 'เบทาโก',
+        brandId: 2,
+      },
+    ] as any[],
   }),
   methods: {
     async getBrands() {

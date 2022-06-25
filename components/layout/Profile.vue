@@ -8,10 +8,10 @@
         </template>
         <template v-else
           ><div class="name pb-1">
-            <span style="font-size: 14px; font-weight: 600">{{ comName }}</span>
+            <span style="font-size: 14px; font-weight: 600">อนันทรัพย์</span>
           </div>
           <div class="address pb-1">
-            <p style="font-size: 14px">{{ branchName }}</p>
+            <p style="font-size: 14px">Papa mama shop</p>
             <p style="font-size: 14px" v-if="branchCode === '00000'">
               (สำนักงานใหญ่)
             </p>

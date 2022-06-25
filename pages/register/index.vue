@@ -194,28 +194,28 @@ export default Vue.extend({
       a.click()
       a.remove()
     },
-    async submitRegister() {
-      const phoneNumber = this.PhoneNumber.replaceAll('-', '')
-      const response = await authen.register(
-        phoneNumber,
-        this.Password,
-        phoneNumber
-      )
-      if (response && response.alert.length > 0) {
-        if (response.alert[0].alertApiCode == '200') {
-          this.$store.commit('registerStore/setRegister', {
-            username: phoneNumber,
-            password: this.Password,
-            registerId: response.usrRegister[0].registerId,
-            referenceOTP: response.usrRegister[0].referenceOTP,
-            mobile: response.usrRegister[0].mobile,
-          })
-          this.$router.push('/register/otp')
-        } else {
-          this.failedMessage = response.alert[0].alertDisplay
-          this.$modal.show('register-failed')
-        }
-      }
+    submitRegister() {
+      // const phoneNumber = this.PhoneNumber.replaceAll('-', '')
+      // const response = await authen.register(
+      //   phoneNumber,
+      //   this.Password,
+      //   phoneNumber
+      // )
+      // if (response && response.alert.length > 0) {
+      //   if (response.alert[0].alertApiCode == '200') {
+      // this.$store.commit('registerStore/setRegister', {
+      //   username: phoneNumber,
+      //   password: this.Password,
+      // registerId: response.usrRegister[0].registerId,
+      // referenceOTP: response.usrRegister[0].referenceOTP,
+      // mobile: response.usrRegister[0].mobile,
+      // })
+      // this.$router.push('/auth')
+      // } else {
+      //   this.failedMessage = response.alert[0].alertDisplay
+      //   this.$modal.show('register-failed')
+      // }
+      // }
     },
   },
 })

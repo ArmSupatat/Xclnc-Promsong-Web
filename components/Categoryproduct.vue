@@ -54,7 +54,7 @@
 
         <v-list v-else class="listGroupProduct">
           <v-list-group
-            v-for="group in listGroupProduct"
+            v-for="group in mockListGroupProduct"
             :key="group.productGroupId"
             no-action
             v-model="group.active"
@@ -133,6 +133,64 @@ export default Vue.extend({
     },
     selectedGroups: [] as number[],
     selectedSubGroups: [] as number[],
+    mockListGroupProduct: [
+      {
+        productGroupId: 1,
+        productGroupName: 'เนื้อหมู',
+      },
+      {
+        productGroupId: 2,
+        productGroupName: 'เนื้อไก่',
+      },
+      {
+        productGroupId: 3,
+        productGroupName: 'เนื้อสัตว์อื่น',
+      },
+      {
+        productGroupId: 4,
+        productGroupName: 'ปลาและอาหารทะเล',
+      },
+      {
+        productGroupId: 5,
+        productGroupName: 'ผลไม้',
+      },
+      {
+        productGroupId: 6,
+        productGroupName: 'ผัก',
+      },
+      {
+        productGroupId: 7,
+        productGroupName: 'ข้าว ไข่ เส้น',
+      },
+      {
+        productGroupId: 8,
+        productGroupName: 'ซอสปรุงอาหาร',
+      },
+      {
+        productGroupId: 9,
+        productGroupName: 'เครื่องปรุงรส',
+      },
+      {
+        productGroupId: 10,
+        productGroupName: 'น้ำมัน',
+      },
+      {
+        productGroupId: 11,
+        productGroupName: 'เครื่องดื่ม',
+      },
+      {
+        productGroupId: 12,
+        productGroupName: 'ของแห้ง',
+      },
+      {
+        productGroupId: 13,
+        productGroupName: 'อาหารแปรรูป',
+      },
+      {
+        productGroupId: 14,
+        productGroupName: 'ของใช้และบรรจุภัณฑ์',
+      },
+    ] as any[],
   }),
 
   methods: {

@@ -3,14 +3,7 @@
     <h3 style="padding: 0.7rem">สรุปข้อมูลคำสั่งซื้อ</h3>
     <v-row>
       <v-col lg="6"> รวมเป็นเงิน </v-col>
-      <v-col lg="6" class="text-right">
-        {{
-          CurrencyFormatter.addCurrencyFormat(
-            sumPoBeforeDiscAmt ? sumPoBeforeDiscAmt : 0,
-            true
-          )
-        }}
-      </v-col>
+      <v-col lg="6" class="text-right"> ฿1160.00 </v-col>
     </v-row>
     <v-row>
       <v-col lg="6"> ส่วนลดสินค้า </v-col>
@@ -43,9 +36,7 @@
     </v-row>
     <v-row>
       <v-col lg="6"> ค่าจัดส่ง </v-col>
-      <v-col lg="6" class="text-right">
-        {{ CurrencyFormatter.addCurrencyFormat(0, true) }}
-      </v-col>
+      <v-col lg="6" class="text-right"> ฿50.00 </v-col>
     </v-row>
     <v-row>
       <v-card
@@ -55,9 +46,7 @@
         class="d-flex align-center flex-row mt-6"
       >
         <v-col lg="6"> รวมทั้งสิ้น </v-col>
-        <v-col lg="6" class="font-weight-bold text-right">
-          {{ CurrencyFormatter.addCurrencyFormat(poAmt ? poAmt : 0, true) }}
-        </v-col>
+        <v-col lg="6" class="font-weight-bold text-right"> ฿1210.00 </v-col>
       </v-card>
     </v-row>
     <v-row>
@@ -81,23 +70,16 @@
     <v-row class="border-t">
       <v-col lg="6"> รวมทั้งสิ้น </v-col>
       <v-col lg="6" class="NetPrice font-weight-bold text-right">
-        ฿<span class="NetPriceValue">{{
-          CurrencyFormatter.addCurrencyFormat(genQrAmt ? genQrAmt : 0, false)
-        }}</span>
+        ฿<span class="NetPriceValue">1210.00</span>
       </v-col>
     </v-row>
-    <v-row class="border-t" v-if="poAmt < 1000">
+    <!-- <v-row class="border-t" v-if="poAmt < 1000">
       <v-col lg="12">
         <span style="color: red"> ยอดสั่งซื้อขั้นต่ำ ฿1000</span>
       </v-col>
-    </v-row>
+    </v-row> -->
     <v-row class="border-t">
-      <v-btn
-        block
-        class="titel rounded"
-        :disabled="linkPage === '/' || (poAmt ? poAmt < 1000 : 0) || validate"
-        @click="submitPayment"
-      >
+      <v-btn block class="titel rounded" @click="submitPayment">
         <span class="white--text"> {{ btnName }} </span>
       </v-btn>
     </v-row>
@@ -126,7 +108,12 @@ export default Vue.extend({
   },
   methods: {
     submitPayment() {
-      this.$emit('submitPayment')
+      if (this.btnName === 'ไปขั้นตอนการชำระเงิน') {
+        this.$router.push('/payment')
+      } else if (this.btnName === 'ชำระเงิน') {
+        this.$router.push('/payment/confirmOrder')
+      }
+      // this.$emit('submitPayment')
     },
   },
 })
